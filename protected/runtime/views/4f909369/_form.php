@@ -1,0 +1,56 @@
+<?php /* source file: /home/admin/web/yulialanske.ru/public_html/ob/protected/modules/admin/views/way/_form.php */ ?>
+
+
+	<div class="col">
+        <!-- main header -->
+        <div class="bg-light lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <h1 class="m-n font-thin h3 text-black">Способы оплаты</h1>
+                    <small class="text-muted"><?php echo $this->pageTitle; ?></small>
+                </div>                                
+            </div>
+        </div>
+        <!-- / main header -->
+        <div class="wrapper-md" ng-controller="FlotChartDemoCtrl">
+            <div class="panel panel-default">
+            	<?php $form=$this->beginWidget('CActiveForm', array(
+					'id'=>'way-form',
+					'enableAjaxValidation'=>false,
+				)); ?>
+
+				<div class="validerror"><?= $form->errorSummary($model); ?></div>
+
+
+				<fieldset>
+					<legend>Данные</legend>
+					<ol>					    
+						<li>
+							<?= $form->labelEx($model,'way_id'); ?>
+							<?= $form->textField($model,'way_id',array('size'=>60,'maxlength'=>255, 'class' => 'text')); ?>
+							<?= $form->error($model,'way_id'); ?>
+						</li>    
+						<li>
+							<?= $form->labelEx($model,'title'); ?>
+							<?= $form->textField($model,'title',array('size'=>60,'maxlength'=>255, 'class' => 'text')); ?>
+							<?= $form->error($model,'title'); ?>
+						</li>
+						<li>
+							<?= $form->labelEx($model,'code'); ?>
+							<?= $form->textArea($model,'code',array('rows'=>15, 'cols'=>50, 'class' => 'textarea')); ?>
+							<?= $form->error($model,'code'); ?>
+						</li>
+					</ol>
+				</fieldset>				
+				
+
+				<fieldset class="submit">
+						<?= CHtml::submitButton($model->isNewRecord ? 'Добавить способ' : 'Сохранить изменения', array ('class' => 'submit btn m-b-xs  btn-primary btn-addon btn-lg')); ?>
+				</fieldset>
+
+				<?php $this->endWidget(); ?>
+			</div>
+
+        </div>
+    </div>
+
